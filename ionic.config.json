@@ -1,0 +1,7 @@
+{
+  "name": "mashgin-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

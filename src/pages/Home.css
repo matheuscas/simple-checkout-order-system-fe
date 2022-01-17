@@ -1,0 +1,9 @@
+.cartButton {
+    position: relative;
+}
+
+.itemsBadge {
+    position: absolute;
+    top: -3px;
+    right: -5px;
+}

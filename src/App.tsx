@@ -25,6 +25,7 @@ import './theme/variables.css';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { useState } from 'react';
 import { Item } from './services/items';
+import Cart from './pages/Cart';
 
 setupIonicReact();
 
@@ -54,6 +55,9 @@ const App: React.FC = () => {
                 onAddItem={onAddItem}
                 onRemoveItem={onRemoveItem}
               />
+            </Route>
+            <Route path="/cart">
+              <Cart cart={cart} />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

@@ -40,7 +40,7 @@ const Home: React.FC<ContainerProps> = ({
         <IonToolbar>
           <IonTitle>Menu</IonTitle>
           <IonButtons slot="end">
-            <IonButton className="cartButton">
+            <IonButton className="cartButton" routerLink="/cart">
               <IonIcon slot="icon-only" icon={cart} />
               <IonBadge className="itemsBadge" color="danger">
                 {basket.length}

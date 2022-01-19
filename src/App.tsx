@@ -26,6 +26,7 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { useState } from 'react';
 import { Item } from './services/items';
 import Cart from './pages/Cart';
+import Checkout from './pages/Checkout';
 
 setupIonicReact();
 
@@ -58,6 +59,9 @@ const App: React.FC = () => {
             </Route>
             <Route path="/cart">
               <Cart cart={cart} onRemoveItem={onRemoveItem} />
+            </Route>
+            <Route path="/checkout">
+              <Checkout cart={cart} />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

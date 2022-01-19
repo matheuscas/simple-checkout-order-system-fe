@@ -1,3 +1,4 @@
+import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
@@ -21,27 +22,47 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import {QueryClient, QueryClientProvider} from "react-query";
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { useState } from 'react';
+import { Item } from './services/items';
 
 setupIonicReact();
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-const App: React.FC = () => (
-  <QueryClientProvider client={queryClient}>
-    <IonApp>
-      <IonReactRouter>
-        <IonRouterOutlet>
-          <Route exact path="/home">
-              <Home />
-          </Route>
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-      </IonReactRouter>
-    </IonApp>
-  </QueryClientProvider>
-);
+const App: React.FC = () => {
+  const [cart, setCart] = useState<Item[]>([]);
+  const onAddItem = (item: Item) => {
+    setCart((prev) => {
+      return [...prev, item];
+    });
+  };
+
+  const onRemoveItem = (item: Item) => {
+    setCart((prev) => {
+      return prev.filter((_item) => _item.id !== item.id);
+    });
+  };
+  return (
+    <QueryClientProvider client={queryClient}>
+      <IonApp>
+        <IonReactRouter>
+          <IonRouterOutlet>
+            <Route exact path="/home">
+              <Home
+                basket={cart}
+                onAddItem={onAddItem}
+                onRemoveItem={onRemoveItem}
+              />
+            </Route>
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+          </IonRouterOutlet>
+        </IonReactRouter>
+      </IonApp>
+    </QueryClientProvider>
+  );
+};
 
 export default App;

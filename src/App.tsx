@@ -57,7 +57,7 @@ const App: React.FC = () => {
               />
             </Route>
             <Route path="/cart">
-              <Cart cart={cart} />
+              <Cart cart={cart} onRemoveItem={onRemoveItem} />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

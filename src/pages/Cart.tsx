@@ -13,9 +13,13 @@ import CartItems from '../components/CartItems';
 
 interface ContainerProps {
   cart: Item[];
+  onRemoveItem: (item: Item) => void;
 }
 
-const Cart: React.FC<ContainerProps> = ({ cart }: ContainerProps) => {
+const Cart: React.FC<ContainerProps> = ({
+  cart,
+  onRemoveItem,
+}: ContainerProps) => {
   return (
     <IonPage>
       <IonHeader>
@@ -28,7 +32,9 @@ const Cart: React.FC<ContainerProps> = ({ cart }: ContainerProps) => {
       </IonHeader>
       <IonContent className="ion-padding">
         {cart.length === 0 && <h1>No cart items.</h1>}
-        {cart.length > 0 && <CartItems cartItems={cart} />}
+        {cart.length > 0 && (
+          <CartItems cartItems={cart} onRemoveItem={onRemoveItem} />
+        )}
       </IonContent>
     </IonPage>
   );

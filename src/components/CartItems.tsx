@@ -13,9 +13,13 @@ import { closeCircle } from 'ionicons/icons';
 
 interface ContainerProps {
   cartItems: Item[];
+  onRemoveItem: (item: Item) => void;
 }
 
-const CartItems: React.FC<ContainerProps> = ({ cartItems }: ContainerProps) => {
+const CartItems: React.FC<ContainerProps> = ({
+  cartItems,
+  onRemoveItem,
+}: ContainerProps) => {
   return (
     <IonList>
       {cartItems.map((item) => (
@@ -25,7 +29,7 @@ const CartItems: React.FC<ContainerProps> = ({ cartItems }: ContainerProps) => {
           </IonThumbnail>
           <IonLabel>{item.name}</IonLabel>
           <IonLabel>$ {item.price}</IonLabel>
-          <IonButton color="danger">
+          <IonButton color="danger" onClick={() => onRemoveItem(item)}>
             <IonIcon slot="icon-only" icon={closeCircle} />
           </IonButton>
         </IonItem>

@@ -18,14 +18,30 @@ interface ContainerProps {
   onRemoveItem: (item: Item) => void;
 }
 
-const addItemButton = (item: Item, onAddItem: (item: Item) => void) => (
+interface AddItemButtonProps {
+  item: Item;
+  onAddItem: (item: Item) => void;
+}
+
+interface RemoveItemButtonProps {
+  item: Item;
+  onRemoveItem: (item: Item) => void;
+}
+
+const AddItemButton: React.FC<AddItemButtonProps> = ({
+  item,
+  onAddItem,
+}: AddItemButtonProps) => (
   <IonButton expand="block" onClick={() => onAddItem(item)}>
     <IonIcon slot="start" icon={cart} />
     Add to cart
   </IonButton>
 );
 
-const removeItemButton = (item: Item, onRemoveItem: (item: Item) => void) => (
+const RemoveItemButton: React.FC<RemoveItemButtonProps> = ({
+  item,
+  onRemoveItem,
+}: RemoveItemButtonProps) => (
   <IonButton color="danger" expand="block" onClick={() => onRemoveItem(item)}>
     <IonIcon slot="start" icon={closeCircle} />
     Remove from cart
@@ -52,9 +68,11 @@ const ItemCard: React.FC<ContainerProps> = ({
         <IonCardTitle>{item.name}</IonCardTitle>
       </IonCardHeader>
       <IonCardContent>
-        {isItemInTheBasket
-          ? removeItemButton(item, onRemoveItem)
-          : addItemButton(item, onAddItem)}
+        {isItemInTheBasket ? (
+          <RemoveItemButton item={item} onRemoveItem={onRemoveItem} />
+        ) : (
+          <AddItemButton item={item} onAddItem={onAddItem} />
+        )}
       </IonCardContent>
     </IonCard>
   );

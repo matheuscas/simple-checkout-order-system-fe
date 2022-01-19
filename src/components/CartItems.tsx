@@ -10,6 +10,7 @@ import {
   IonThumbnail,
 } from '@ionic/react';
 import { cardOutline, closeCircle } from 'ionicons/icons';
+import { formatPrice, getCartTotalAmount } from '../utils';
 
 interface ContainerProps {
   cartItems: Item[];
@@ -20,10 +21,7 @@ const CartItems: React.FC<ContainerProps> = ({
   cartItems,
   onRemoveItem,
 }: ContainerProps) => {
-  const amount: number = cartItems.reduce((previousValue, currentValue) => {
-    return previousValue + parseFloat(currentValue.price);
-  }, 0);
-
+  const amount = getCartTotalAmount(cartItems);
   return (
     <IonList>
       {cartItems.map((item) => (
@@ -39,8 +37,8 @@ const CartItems: React.FC<ContainerProps> = ({
         </IonItem>
       ))}
       <IonItem lines="none">
-        <h2>Total: $ {amount.toFixed(2)}</h2>
-        <IonButton slot="end" color="success">
+        <h2>Total: $ {formatPrice(amount)}</h2>
+        <IonButton slot="end" color="success" routerLink="/checkout">
           <IonIcon slot="start" icon={cardOutline} />
           Checkout
         </IonButton>

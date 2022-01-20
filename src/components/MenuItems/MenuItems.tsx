@@ -1,8 +1,8 @@
 import { IonCol, IonGrid, IonRow } from '@ionic/react';
 import React from 'react';
-import { Item } from '../services/items';
+import { Item } from '../../services/items';
 import './MenuItems.css';
-import ItemCard from './ItemCard';
+import ItemCard from '../ItemCard';
 
 interface ContainerProps {
   data: Item[] | undefined;

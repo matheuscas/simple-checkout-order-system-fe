@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import CartItems from '../components/CartItems';
 
-interface ContainerProps {
+export interface ContainerProps {
   cart: Item[];
   onRemoveItem: (item: Item) => void;
 }
@@ -33,7 +33,7 @@ const Cart: React.FC<ContainerProps> = ({
       <IonContent className="ion-padding">
         {cart.length === 0 && <h1>No cart items.</h1>}
         {cart.length > 0 && (
-          <CartItems cartItems={cart} onRemoveItem={onRemoveItem} />
+          <CartItems cart={cart} onRemoveItem={onRemoveItem} />
         )}
       </IonContent>
     </IonPage>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Item } from '../services/items';
 import {
   IonButton,
   IonIcon,
@@ -11,20 +10,16 @@ import {
 } from '@ionic/react';
 import { cardOutline, closeCircle } from 'ionicons/icons';
 import { formatPrice, getCartTotalAmount } from '../utils';
-
-interface ContainerProps {
-  cartItems: Item[];
-  onRemoveItem: (item: Item) => void;
-}
+import { ContainerProps } from '../pages/Cart';
 
 const CartItems: React.FC<ContainerProps> = ({
-  cartItems,
+  cart,
   onRemoveItem,
 }: ContainerProps) => {
-  const amount = getCartTotalAmount(cartItems);
+  const amount = getCartTotalAmount(cart);
   return (
     <IonList>
-      {cartItems.map((item) => (
+      {cart.map((item) => (
         <IonItem key={item.id}>
           <IonThumbnail slot="start">
             <IonImg src={`./assets/images/${item.image_id}.jpg`} />

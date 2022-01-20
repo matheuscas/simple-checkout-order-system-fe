@@ -1,6 +1,6 @@
-import { Item } from '../services/items';
+import { Item } from '../../services/items';
 import React from 'react';
-import { formatPrice, getCartTotalAmount } from '../utils';
+import { formatPrice, getCartTotalAmount } from '../../utils';
 
 interface ContainerProps {
   cart: Item[];
@@ -13,7 +13,7 @@ const CartSummary: React.FC<ContainerProps> = ({ cart }: ContainerProps) => {
     <div style={{ backgroundColor: 'lightgray', padding: '10px' }}>
       <h2>Review your order:</h2>
       <p>
-        {summary} in total of $ {formatPrice(amount)}
+        {summary} in the total of $ {formatPrice(amount)}
       </p>
     </div>
   );

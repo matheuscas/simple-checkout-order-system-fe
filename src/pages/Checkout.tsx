@@ -9,7 +9,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import CartSummary from '../components/CartSummary';
+import CartSummary from '../components/CartSummary/CartSummary';
 import CheckoutPaymentForm from '../components/CheckoutPaymentForm';
 
 interface ContainerProps {

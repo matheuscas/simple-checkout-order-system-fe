@@ -9,7 +9,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import CartItems from '../components/CartItems';
+import CartItems from '../components/CartItems/CartItems';
 
 export interface ContainerProps {
   cart: Item[];

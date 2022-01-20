@@ -9,8 +9,8 @@ import {
   IonThumbnail,
 } from '@ionic/react';
 import { cardOutline, closeCircle } from 'ionicons/icons';
-import { formatPrice, getCartTotalAmount } from '../utils';
-import { ContainerProps } from '../pages/Cart';
+import { formatPrice, getCartTotalAmount } from '../../utils';
+import { ContainerProps } from '../../pages/Cart';
 
 const CartItems: React.FC<ContainerProps> = ({
   cart,

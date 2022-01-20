@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import CartItems from './CartItems';
-import { formatPrice, getCartTotalAmount } from '../utils';
+import { formatPrice, getCartTotalAmount } from '../../utils';
 
 test('renders the expected items', async () => {
   const props = {

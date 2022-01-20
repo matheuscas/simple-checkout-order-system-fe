@@ -27,6 +27,7 @@ import { useState } from 'react';
 import { Item } from './services/items';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
+import NotFoundPage from './pages/NotFoundPage';
 
 setupIonicReact();
 
@@ -70,6 +71,7 @@ const App: React.FC = () => {
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
+            <Route component={NotFoundPage} />
           </IonRouterOutlet>
         </IonReactRouter>
       </IonApp>

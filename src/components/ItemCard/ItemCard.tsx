@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item } from '../services/items';
+import { Item } from '../../services/items';
 import {
   IonButton,
   IonCard,

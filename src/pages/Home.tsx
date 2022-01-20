@@ -51,7 +51,11 @@ const Home: React.FC<ContainerProps> = ({
       </IonHeader>
       <IonContent className="ion-padding">
         <IonLoading isOpen={isLoading} message={'Please wait...'} />
-        <IonToast isOpen={isError} message={(error as any)?.message} />
+        <IonToast
+          isOpen={isError}
+          message={(error as any)?.message}
+          duration={200}
+        />
         {!isLoading && !isError && (
           <MenuItems
             data={data}

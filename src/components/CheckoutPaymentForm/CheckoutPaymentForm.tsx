@@ -12,7 +12,7 @@ import {
   useIonAlert,
 } from '@ionic/react';
 import { useMutation } from 'react-query';
-import { Item, PaymentCart, submitOrder } from '../services/items';
+import { Item, PaymentCart, submitOrder } from '../../services/items';
 import { useHistory } from 'react-router';
 
 interface ContainerProps {
@@ -49,7 +49,12 @@ const CheckoutPaymentForm: React.FC<ContainerProps> = ({
     event.preventDefault();
     console.log(name, email, address, paymentMode);
     // just to makes sure
-    if (name === undefined || email === undefined || address === undefined) {
+    if (
+      name === undefined ||
+      email === undefined ||
+      address === undefined ||
+      paymentMode === undefined
+    ) {
       present({
         header: 'Alert',
         message: 'The form must be filled. ',
@@ -79,6 +84,7 @@ const CheckoutPaymentForm: React.FC<ContainerProps> = ({
               value={name}
               type="text"
               required
+              placeholder="Name"
               onIonChange={(e) => setName(e.detail.value!)}
             />
           </IonItem>
@@ -87,6 +93,7 @@ const CheckoutPaymentForm: React.FC<ContainerProps> = ({
             <IonInput
               value={email}
               type="email"
+              placeholder="Email"
               required
               onIonChange={(e) => setEmail(e.detail.value!)}
             />
@@ -96,6 +103,7 @@ const CheckoutPaymentForm: React.FC<ContainerProps> = ({
             <IonInput
               value={address}
               type="text"
+              placeholder="Address"
               required
               onIonChange={(e) => setAddress(e.detail.value!)}
             />

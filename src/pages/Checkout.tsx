@@ -10,7 +10,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import CartSummary from '../components/CartSummary/CartSummary';
-import CheckoutPaymentForm from '../components/CheckoutPaymentForm';
+import CheckoutPaymentForm from '../components/CheckoutPaymentForm/CheckoutPaymentForm';
 
 interface ContainerProps {
   cart: Item[];

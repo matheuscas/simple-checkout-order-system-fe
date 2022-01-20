@@ -27,15 +27,16 @@ const CartItems: React.FC<ContainerProps> = ({
           <IonLabel>{item.name}</IonLabel>
           <IonLabel>$ {item.price}</IonLabel>
           <IonButton color="danger" onClick={() => onRemoveItem(item)}>
-            <IonIcon slot="icon-only" icon={closeCircle} />
+            Remove
+            <IonIcon slot="end" icon={closeCircle} />
           </IonButton>
         </IonItem>
       ))}
       <IonItem lines="none">
         <h2>Total: $ {formatPrice(amount)}</h2>
         <IonButton slot="end" color="success" routerLink="/checkout">
-          <IonIcon slot="start" icon={cardOutline} />
           Checkout
+          <IonIcon slot="end" icon={cardOutline} />
         </IonButton>
       </IonItem>
     </IonList>

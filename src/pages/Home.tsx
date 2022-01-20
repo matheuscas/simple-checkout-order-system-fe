@@ -13,7 +13,7 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import './Home.css';
-import getItems from '../services/items';
+import { getItems } from '../services/items';
 import { Item } from '../services/items';
 import { useQuery } from 'react-query';
 import MenuItems from '../components/MenuItems';

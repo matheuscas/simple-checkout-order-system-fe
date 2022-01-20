@@ -45,6 +45,10 @@ const App: React.FC = () => {
       return prev.filter((_item) => _item.id !== item.id);
     });
   };
+
+  const onClearCart = () => {
+    setCart([]);
+  };
   return (
     <QueryClientProvider client={queryClient}>
       <IonApp>
@@ -61,7 +65,7 @@ const App: React.FC = () => {
               <Cart cart={cart} onRemoveItem={onRemoveItem} />
             </Route>
             <Route path="/checkout">
-              <Checkout cart={cart} />
+              <Checkout cart={cart} onClearCart={onClearCart} />
             </Route>
             <Route exact path="/">
               <Redirect to="/home" />

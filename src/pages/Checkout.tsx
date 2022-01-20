@@ -10,12 +10,17 @@ import {
   IonToolbar,
 } from '@ionic/react';
 import CartSummary from '../components/CartSummary';
+import CheckoutPaymentForm from '../components/CheckoutPaymentForm';
 
 interface ContainerProps {
   cart: Item[];
+  onClearCart: () => void;
 }
 
-const Checkout: React.FC<ContainerProps> = ({ cart }: ContainerProps) => {
+const Checkout: React.FC<ContainerProps> = ({
+  cart,
+  onClearCart,
+}: ContainerProps) => {
   return (
     <IonPage>
       <IonHeader>
@@ -28,7 +33,12 @@ const Checkout: React.FC<ContainerProps> = ({ cart }: ContainerProps) => {
       </IonHeader>
       <IonContent className="ion-padding">
         {cart.length === 0 && <h1>No cart, no checkout.</h1>}
-        {cart.length > 0 && <CartSummary cart={cart} />}
+        {cart.length > 0 && (
+          <>
+            <CartSummary cart={cart} />
+            <CheckoutPaymentForm cart={cart} onClearCart={onClearCart} />
+          </>
+        )}
       </IonContent>
     </IonPage>
   );

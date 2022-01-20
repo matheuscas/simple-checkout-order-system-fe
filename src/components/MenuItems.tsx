@@ -19,7 +19,7 @@ const MenuItems: React.FC<ContainerProps> = ({
 }) => {
   return (
     <div>
-      {data === undefined && <h1>No items to load.</h1>}
+      {(data === undefined || data.length === 0) && <h1>No items to load.</h1>}
       <IonGrid>
         <IonRow>
           {data?.map((item) => (
